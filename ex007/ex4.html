@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhereLiving</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            margin-top: 30px;
+            text-align: center;
+            font: bold 16pt Arial; 
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+        }
+        #container > input#txtpais {
+            margin: 15px 10px;
+            width: 200px;
+            height: 20px;
+            border-radius: 5px;
+            border: 1px solid black;
+
+        }
+        
+        #container > label {
+            margin-top: 17px;
+        }
+
+        #container > input#btn-apply {
+            width: 60px;
+            height: 20px;
+            text-align: center;
+            margin-top: 16px;
+            border-radius: 6px;
+            background-color: lightgreen;
+            border: solid 1px black;
+        }
+        #containermax {
+            margin: auto;
+            margin-top: 300px;
+            border: 1px solid saddlebrown;
+            width: 400px;
+            height: 200px;
+            background-color: lightblue;
+        }
+        div#res {
+            text-align: initial;
+            padding-left: 25px;
+            padding-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="containermax">
+        <h1>Qual país você mora atualmente ?</h1>
+           <div id="container">
+           <label for="txtpais">Digite aqui</label> <input type="text" name="txtpais" id="txtpais">
+           <input type="button" value="Aplicar" onclick="aplicar()" id="btn-apply">
+           </div>
+        
+           <div id="res"></div>
+    </div>
+
+   <script>
+
+    function aplicar() {
+        let morada = window.document.getElementById('txtpais')
+        let pais = morada.value.trim()
+        let res = document.getElementById('res')
+        
+        if (pais === '') {
+            res.innerHTML = '⚠️ Por favor, digite o nome do país!'
+            return
+        }
+        
+        if (pais.toLowerCase() === 'brasil') {
+            res.innerHTML = `Você é Brasileiro!`
+        } else {
+            res.innerHTML = `Você é Estrangeiro!`
+        }
+    }
+
+   </script>
+</body>
+</html>
