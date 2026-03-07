@@ -1,4 +1,4 @@
-let vel = 100
+let vel = 30
 if (vel > 60){ // Condicao simples
     console.log(`Você ultrapassou a velocidade permitida, MULTADO!`)
 }
