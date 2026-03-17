@@ -26,15 +26,15 @@ if(notadoAluno >= 6){
     */
    
 let notas = {
-     materia1: 6,
-     materia2: 10,
-     materia3: 4,
-     materia4: 5,
+     materia1: 10,
+     materia2: 6,
+     materia3: 5,
+     materia4: 3,
      materia5: 3,
-     materia6: 7,
+     materia6: 3,
 };
 
-media = (notas.materia1 + notas.materia2 + notas.materia3 + notas.materia4 + notas.materia5 + notas.materia6) / 6;
+let media = (notas.materia1 + notas.materia2 + notas.materia3 + notas.materia4 + notas.materia5 + notas.materia6) / 6;
 
 if(media >= 5){
     console.log('Aprovado')
