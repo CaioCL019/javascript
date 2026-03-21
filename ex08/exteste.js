@@ -19,3 +19,10 @@ if (media >= 7) {
     alert("Você foi reprovado com sua média de " + media.toFixed(2));
 }
 
+
+
+
+
+
+
+
