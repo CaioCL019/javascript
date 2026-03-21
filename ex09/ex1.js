@@ -41,3 +41,5 @@ if(media >= 5){
 }else {
     console.log('Reprovado')
 }
+
+

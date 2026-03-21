@@ -23,23 +23,8 @@
             - Array completo
 
 */
-/*
-const numeros = [1,2,3,4,5]
 
-const dobro = numeros.map( numero => numero * 50)
-
-console.log(dobro);
-*/
-
-/*
-const numeros = [1,2,3,4,5]
-
-const dobro = numeros.map((numero) => {
-    return numero * 4
-})
-
-console.log(dobro)
-*/
+// Desafio: Adicionar mais 10 produtos em cada, filtrar so os produtos com desconto e quanto é o faturamento total dos produtos com desconto
 
 const produtos = [
   { id: 1, nome: "Smartphone Galaxy S21", preco: 3999.99, temDesconto: true, quantidade: 1 },
@@ -54,68 +39,14 @@ const produtos = [
   { id: 10, nome: "Caixa de Som Portátil Sony", preco: 1000.00, temDesconto: false, quantidade: 3 }
 ];
 
+// Criando a logica e algoritmo
 
-// CRIAR UM NOVO ARRAY FORMATANDO A MOEDA E DANDO DESCONTO AOS CLIENTES
-const novosProdutos = produtos.map( produto => {
-    
+// 1 - Adicionar +10 em cada produto
+// 2 - Filtrar so os em promocao
+// 3 - Faturamento se vender todos em promocao
 
-    const novoPreco = produto.temDesconto ? produto.preco * 0.9 : produto.preco
+const faturamentoTotal = produtos.map( produto => {
+    return {...produto, quantidade: produto.quantidade + 10}
+}).filter( produto => produto.temDesconto).reduce(( acumulador, produto) => acumulador + produto.quantidade * produto.preco, 0,);
 
-    // Ternario = IF/else ? = if / : = else
-
-    return {
-        id: produto.id,
-        name: produto.nome,
-        price: novoPreco.toLocaleString('pt-br', {
-            style: 'currency', currency: 'BRL'
-        }),
-        quantidade: produto.quantidade
-    }
-})
-
-console.log(novosProdutos);
-
-// Exemplo de reduce
-/*
-const numeros = [1,2,3,4,5]
-
-const soma = numeros.reduce((acumulador, atual) => {
-    const total = acumulador + atual
-
-    return total
-})
-
-console.log(soma);
-*/
-
-
-// QUAL SERA O FATURAMENTO SE VENDERMOS TODO O ESTOQUE 
-
-const totalVendas = produtos.reduce((acumulador, produto) => {
-
-    return acumulador + (produto.preco * produto.quantidade)
-}, 0)
-
-console.log(totalVendas.toLocaleString('pt-br', {
-            style: 'currency', currency: 'BRL'
-        }),);
-
-
-// Exemplo de filter 
-/*
-const numeros = [1,2,3,4,5,6,7,8,9,10]
-
- const pares = numeros.filter(numero => {
-    return numero % 2 === 0
- })
-
- console.log(pares);
-
-*/
-
-// FILTRAR SOMENTE OS PRODUTOS EM PROMOCAO 
-
- const promocao = produtos.filter( produto => produto.temDesconto) //Caso queira fazer uma inversao nesse exemplo utilize o ! assim:const promocao = produtos.filter( produto => !produto.temDesconto)
- 
- console.log(promocao);
- 
+console.log(faturamentoTotal.toLocaleString('pt-br', {style: 'currency', currency: 'BRL'}))
